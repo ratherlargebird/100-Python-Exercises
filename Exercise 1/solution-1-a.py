@@ -1,36 +1,30 @@
 # improved solution for Question 1
 
-a=0
-b=0
 c=0
 l=[]
 
-# find the first number that is divisible by 7
-for x in range(2000, 3201):
-    if x%7==0:
-        a=x
-        break
-        
-# Find the first number divisble by 5
+def FindMultipleFive(x,y):
+    for i in range(x, y, 7):
+        if i%5==0:
+            return i
 
-for y in range(a, 3201):
-    if y%5==0:
-        b=y
+for i in range(2000, 3201):
+    if i%7==0:
+        a=i
+        b=FindMultipleFive(i, 3201)
         break
 
-# Add numbers that are divisible by 7 to the list but skip every 5th term after first term divisible by 5
-        
-while a<3200:
-    if a<b:
-        l.append(str(a))
+while a<b:
+    l.append(str(a))
+    a += 7
+    
+while a<=3200:
+    if c==0:
+        c=4
         a += 7
     else:
-        c += 1
-        if c != 4:
-            l.append(str(a))
-            a += 7
-        else:
-            c = 0
-            a += 7
+        l.append(str(a))
+        a += 7
+        c -= 1
         
 print(','.join(l))  
