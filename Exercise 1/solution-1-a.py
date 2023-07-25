@@ -3,16 +3,14 @@
 c=0
 l=[]
 
-def FindMultipleFive(x,y):
-    for i in range(x, y, 7):
-        if i%5==0:
+def FindMultiple(x,y,z,q):
+    for i in range(x, y, z):
+        if i%q==0:
             return i
 
-for i in range(2000, 3201):
-    if i%7==0:
-        a=i
-        b=FindMultipleFive(i, 3201)
-        break
+a = FindMultiple(2000, 3201, 1, 7)
+
+b = FindMultiple(a, 3201, 7, 5)
 
 while a<b:
     l.append(str(a))
