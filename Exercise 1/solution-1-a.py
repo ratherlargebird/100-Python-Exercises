@@ -1,28 +1,37 @@
 # improved solution for Question 1
 
-c=0
 l=[]
+
+lowerRange,upperRange = (int(x) for x in input("Enter two values for range ").split(","))
+d = int(input("Enter one value to find all multiples of in the given range "))
+e = int(input("Enter one value to exclude all multiples of in the given range "))
 
 def FindMultiple(x,y,z,q):
     for i in range(x, y, z):
         if i%q==0:
             return i
 
-a = FindMultiple(2000, 3201, 1, 7)
+def UpdateList(x,y):
+    l.append(str(x))
+    x += y
 
-b = FindMultiple(a, 3201, 7, 5)
+a = FindMultiple(lowerRange, upperRange, 1, d)
+
+b = FindMultiple(a, upperRange, d, e)
+
+c = 1
 
 while a<b:
     l.append(str(a))
-    a += 7
+    a += d
     
-while a<=3200:
-    if c==0:
-        c=4
-        a += 7
+while a<=upperRange:
+    if c==1:
+        c=e
+        a += d
     else:
         l.append(str(a))
-        a += 7
+        a += d
         c -= 1
         
-print(','.join(l))  
+print(','.join(l))
