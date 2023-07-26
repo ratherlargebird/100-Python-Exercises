@@ -12,26 +12,19 @@ def FindMultiple(x,y,z,q):
         if i%q==0:
             return i
 
-def UpdateList(x,y):
-    l.append(str(x))
-    x += y
-    return x
-
 a = FindMultiple(lowerRange, upperRange, 1, d)
 
 b = FindMultiple(a, upperRange, d, e)
 
-c = 1
-
-while a<b:
-    a = UpdateList(a,d)
+c = int((b-a)/d)
     
 while a<=upperRange:
-    if c==1:
-        c=e
+    if c<=0:
+        c=(e-1)
         a += d
     else:
-        a = UpdateList(a,d)
+        l.append(str(a))
+        a += d
         c -= 1
         
 print(','.join(l))
