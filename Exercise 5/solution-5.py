@@ -7,3 +7,17 @@
 # Hints:
 # Use __init__ method to construct some parameters
 
+Solution:
+class UserInput(object):
+    def __init__(self):
+        self.s = ""
+
+    def getString(self):
+        self.s = raw_input()
+
+    def printString(self):
+        print self.s.upper()
+
+Obj1 = UserInput()
+Obj1.getString()
+Obj1.printString()
